@@ -23,19 +23,25 @@ export const registerAPI = async (
   username: string,
   email: string,
   password: string,
-  avatar: string,
+  avatar: File,
   agreeTermConditions: boolean,
 ) => {
   try {
-    const data = await axios.post<UserProfileToken>(api + 'users/register', {
-      firstName,
-      lastName,
-      username,
-      email,
-      password,
-      avatar,
-      agreeTermConditions,
-    });
+    const data = await axios.post<UserProfileToken>(
+      `${api}users/register`,
+      {
+        firstName,
+        lastName,
+        username,
+        email,
+        password,
+        avatar,
+        agreeTermConditions,
+      },
+      {
+        'Content-Type': 'multipart/form-data',
+      },
+    );
     return data;
   } catch (error) {
     handleError(error);

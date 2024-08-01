@@ -23,7 +23,7 @@ const signUpSchema = yup.object().shape({
 type ISignUpSchema = yup.InferType<typeof signUpSchema>;
 
 const Signup: FC = () => {
-  const [avatar, setAvatar] = useState<string>('');
+  const [avatar, setAvatar] = useState<File>();
   const { registerUser } = useAuth();
   const navigate = useNavigate();
 
@@ -240,7 +240,9 @@ const Signup: FC = () => {
               <div className={`ml-3 text-sm leading-6 `}>
                 <label
                   htmlFor='agreeTermConditions'
-                  className={`text-sm font-medium text-white ${errors?.agreeTermConditions && 'text-rose-500'}`}
+                  className={
+                    errors?.agreeTermConditions ? 'text-sm font-medium text-rose-500' : 'text-sm font-medium text-white'
+                  }
                 >
                   I agree to the terms and conditions <p className='text-red-400 inline-block text-base'>*</p>
                 </label>

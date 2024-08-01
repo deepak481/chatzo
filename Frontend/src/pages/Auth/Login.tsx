@@ -96,7 +96,7 @@ const Login: FC<Props> = () => {
                 id='rememberMe'
                 className='absolute h-6 w-6 cursor-pointer opacity-0 [&:checked+div]:bg-green-500 [&:checked+div_svg]:block'
                 {...register('rememberMe', { required: true })}
-                checked={true}
+                defaultChecked={true}
               />
               <div className='mr-2 flex h-6 w-6 flex-shrink-0 items-center justify-center border-[1px] border-white bg-transparent focus-within:border-white'>
                 <svg

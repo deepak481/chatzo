@@ -15,7 +15,7 @@ type UserContextType = {
     email: string,
     username: string,
     password: string,
-    avatar: string,
+    avatar: File,
     agreeTermConditions: boolean,
   ) => void;
   loginUser: (username: string, password: string, rememberMe: boolean) => Promise<void>;
@@ -50,7 +50,7 @@ export const UserProvider = ({ children }: Props) => {
     username: string,
     email: string,
     password: string,
-    avatar: string,
+    avatar: File,
     agreeTermConditions: boolean,
   ) => {
     await registerAPI(firstName, lastName, username, email, password, avatar, agreeTermConditions)
